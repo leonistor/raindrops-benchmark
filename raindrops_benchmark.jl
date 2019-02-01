@@ -4,13 +4,13 @@ using Random
 using Statistics
 
 
-rain = [(3,"Pling"), (5,"Plang"), (7,"Plong")]
+const rain = [(3,"Pling"), (5,"Plang"), (7,"Plong")]
 for p in primes(11, 1000)
     push!(rain, (p, "factor:" * string(p)))
 end
 
-rng = MersenneTwister(1234)
-shuffle!(rng, rain)
+# rng = MersenneTwister(1234)
+# shuffle!(rng, rain)
 
 function raindrops_functional(number::Int)
 

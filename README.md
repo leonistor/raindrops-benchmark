@@ -4,7 +4,7 @@
 ## Run benchmarks
 
 ```
-julia --project=@. raindrops.jl
+julia --project=@. raindrops_benchmark.jl
 ```
 
 ## Result
