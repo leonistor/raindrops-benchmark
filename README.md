@@ -7,10 +7,50 @@
 julia --project=@. raindrops_benchmark.jl
 ```
 
-## Result
+## Results
 
 Using julia 1.0.3 on Ubuntu 18.04, Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz
 
+`const` in [raindrops_benchmark.jl, line 7](raindrops_benchmark.jl#L7)
+
+### With `const`
+
+```
+FUNCTIONAL
+BenchmarkTools.Trial:
+  memory estimate:  8.45 KiB
+  allocs estimate:  167
+  --------------
+  minimum time:     3.681 μs (0.00% GC)
+  median time:      3.785 μs (0.00% GC)
+  mean time:        4.564 μs (14.42% GC)
+  maximum time:     3.322 ms (99.83% GC)
+  --------------
+  samples:          10000
+  evals/sample:     8
+
+IMPERATIVE
+BenchmarkTools.Trial:
+  memory estimate:  384 bytes
+  allocs estimate:  7
+  --------------
+  minimum time:     1.338 μs (0.00% GC)
+  median time:      1.441 μs (0.00% GC)
+  mean time:        1.584 μs (4.55% GC)
+  maximum time:     723.256 μs (99.74% GC)
+  --------------
+  samples:          10000
+  evals/sample:     10
+
+RATIO
+BenchmarkTools.TrialRatio:
+  time:             2.626630585623092
+  gctime:           1.0
+  memory:           22.541666666666668
+  allocs:           23.857142857142858
+```
+
+### Without `const`
 ```
 FUNCTIONAL
 BenchmarkTools.Trial:
