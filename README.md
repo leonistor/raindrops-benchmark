@@ -13,8 +13,9 @@ Using julia 1.0.3 on Ubuntu 18.04, Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz
 
 ### Corrected benchmarks
 
+:exclamation:
 ```
-:exclamation: Thou shalt not benchmark in global scope :exclamation:
+Thou shalt not benchmark in global scope
 ```
 
 Moved `rain` inside functions: thank you, [@sbromberger](https://github.com/leonistor/raindrops-benchmark/issues/1#issuecomment-459872527)!
