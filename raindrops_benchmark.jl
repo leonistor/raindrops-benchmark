@@ -3,17 +3,19 @@ using Primes
 using Random
 using Statistics
 
-
-const rain = [(3,"Pling"), (5,"Plang"), (7,"Plong")]
-for p in primes(11, 1000)
-    push!(rain, (p, "factor:" * string(p)))
+function makerain()
+    rain = [(3,"Pling"), (5,"Plang"), (7,"Plong")]
+    for p in primes(11, 1000)
+        push!(rain, (p, "factor:" * string(p)))
+    end
+    rain
 end
 
 # rng = MersenneTwister(1234)
 # shuffle!(rng, rain)
 
 function raindrops_functional(number::Int)
-
+    rain = makerain()
     result = Base.mapfoldl(
         factor -> number % first(factor) == 0 ? last(factor) : "",
         *,
@@ -22,6 +24,7 @@ function raindrops_functional(number::Int)
 end
 
 function raindrops_imperative(number::Int)
+    rain = makerain()
     result = ""
 
     for factor in rain
